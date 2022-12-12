@@ -39,13 +39,13 @@
                 
             <div class="card-body">
                 <div class="row d-flex resultado-mapas" id="resultadoMapas">
-                    <img style="width: 25% !important" src="./data/Dia00.png" />
-                    <div id="svg">teste</div>
-                    <div id="pngdataurl"></div>
-                    <button id="gerarImg" class="btn col-md-1">Gerar IMG</button>
-                    <button id="downloadPng" class="btn col-md-1">Download PNG</button>
-                    <div id="svgdataurl"></div>
-                    <canvas width="810" height="1251"></canvas>
+                    <!-- <img style="width: 25% !important" src="./data/Dia00.png" /> -->
+                    <canvas width="810" height="1251" style="width: 35%"></canvas>
+                    <div id="svg" style="display:none"></div>
+                    <div id="pngdataurl" style="float: right; display:none"></div>
+                    <button id="gerarImg">Gerar IMG</button>
+                    <button id="downloadPng">Download PNG</button>
+                    <div id="svgdataurl" style="display:none"></div>
                 </div>
             </div>
             <div class="sticky-bottom p-3">
@@ -70,8 +70,9 @@
             </div>
         </div>    
     </section>    
-
-    <script src="./js/lib/jquery/dist/jquery.min.js"></script>
+<!-- 
+    <script src="./js/lib/jquery/dist/jquery.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="./js/lib/jquery-ui/dist/jquery-ui.min.js"></script>
     <script src="./js/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="./js/lib/bootstrap-select.js"></script>
@@ -91,6 +92,7 @@
     <script src="./js/Mapas/filtros.js"></script>
     <script src="./js/Mapas/gerarMapa.js"></script>
     <script src="./js/Mapas/gerarMapaSVG.js"></script>
+    <script src="./js/Mapas/imagemMapa.js"></script>
 
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"> -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" /> -->
@@ -106,7 +108,8 @@
             pluvia.filtrosMapas.filtroMapas('#tiposMapas', '#compararUnicoMapa');
             pluvia.filtrosMapas.calendarioPrevisoes('.datepicker', '#startDate', '#finishDate');
             pluvia.filtrosMapas.compararMapa('#compararUnicoMapa', '#startDate', '#finishDate', '#resultadoMapas', '#tiposMapas');
-            pluvia.mapa.criarMapa('#svg', '#gerarImg', '#downloadPng', '#svgdataurl', '#pngdataurl');
+            pluvia.mapa.criarMapa("#svg");
+            pluvia.imagemMapa.criarPNGMapa("#gerarImg", "#downloadPng", "#svgdataurl", "#pngdataurl");
         });
     </script>
   </body>
